@@ -11,13 +11,13 @@ export default function ProfessionalList({category}: ProfessionalListInterface){
     const [state, setState] = useState({professionalList})
     const getProfessionalList = useCallback(() => {
         const list = professionalList
-        setState({...state, professionalList: list})
+        setState({...state, professionalList: list.filter((item: ProfessionalInterface) => item.categories.includes(category))})
     }, [])
     useEffect(() => {getProfessionalList()}, [getProfessionalList])
     return  <Grid container spacing={2} padding={4}>
         
-    {state.professionalList.filter((item: ProfessionalInterface) => item.categories.includes(category)).map(
+    {state.professionalList.length > 0 ? state.professionalList.map(
         item => <ProfessionalCard  item={item} />
-    )}
+    ) : <p>Não há profisisonais nesta categoria</p>}
     </Grid>
 }

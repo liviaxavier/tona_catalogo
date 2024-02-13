@@ -12,6 +12,7 @@ import ErrorPage from './pages/Error';
 import App, { loader as rootLoader } from './App';
 import Auth from './pages/Auth';
 import { CssBaseline } from '@mui/material';
+import CategoryPage from './pages/Category';
 
 const router = createBrowserRouter([
   {
@@ -19,21 +20,19 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
-    children: [
-      {
-        path: "category/:categoryId",
-        // element: <Category />
-      }
-      , {
-        path: "professional/:professionalId",
-        // element: <Professional />
-      } 
-      , {
-        path: "auth",
-        element: <Auth />
-      } 
-    ]
   },
+  {
+    path: "/category/:categoryId",
+    element: <CategoryPage />,
+  }
+  , {
+    path: "/professional/:professionalId",
+    // element: <Professional />
+  } 
+  , {
+    path: "/auth",
+    element: <Auth />
+  } 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

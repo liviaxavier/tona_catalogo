@@ -2,25 +2,25 @@ export default [
     {
         "id": "0",
         "name": "Tatuagem",
-        "image": "", 
+        "image": "https://placehold.co/600x400", 
         "parent": ""
     },
     {
         "id": "1",
         "name": "Psicologia",
-        "image": "", 
+        "image": "https://placehold.co/600x400", 
         "parent": "2"
     },
     {
         "id": "2",
         "name": "Saúde",
-        "image": "", 
+        "image": "https://placehold.co/600x400", 
         "parent": ""
     },
     {
         "id": "3",
         "name": "Serviços Gerais",
-        "image": "", 
+        "image": "https://placehold.co/600x400", 
         "parent": ""
     }
 ]

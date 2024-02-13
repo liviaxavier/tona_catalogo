@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import categoryList from '../data/categoryList'
-import { CategoryInterface } from "../interfaces/Category"
 import CategoryCard from "./CategoryCard"
+import {Grid } from "@mui/material"
 export default function CategoryList(){
     const [state, setState] = useState({categoryList})
     const getCategoryList = useCallback(() => {
@@ -9,7 +9,9 @@ export default function CategoryList(){
         setState({...state, categoryList: list})
     }, [])
     useEffect(() => {getCategoryList()}, [getCategoryList])
-    return state.categoryList.map(
+    return  <Grid container spacing={2} padding={4}>
+    {state.categoryList.map(
         item => <CategoryCard name={item.name} image={item.image} id={item.id} parent={item.parent} />
-    )
+    )}
+    </Grid>
 }

@@ -2,7 +2,7 @@ export default [
     {
         "id": "0",
         "name": "Joana",
-        "image": "https://placehold.co/600x400", 
+        "image": "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg", 
         "categories": [
             "2"
         ],
@@ -14,7 +14,7 @@ export default [
     , {
         "id": "1",
         "name": "Maria",
-        "image": "https://placehold.co/600x400", 
+        "image": "https://images.pexels.com/photos/2328141/pexels-photo-2328141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 
         "categories": [
             "2"
         ],
@@ -27,7 +27,7 @@ export default [
         "id": "2",
         "location": "São Paulo, SP",
         "name": "Priscila",
-        "image": "https://placehold.co/600x400", 
+        "image": "https://midias.correiobraziliense.com.br/_midias/jpg/2021/03/05/675x450/1_cbpfot020320212188-6556336.jpg", 
         "categories": [
             "0"
         ]
@@ -39,7 +39,7 @@ export default [
         "id": "3",
         "name": "Ana",
         "location": "São Paulo, SP",
-        "image": "https://placehold.co/600x400", 
+        "image": "https://media.gazetadopovo.com.br/sites/2/2022/01/10205252/perfil-2-214x214.jpg", 
         "categories": [
             "0"
         ]
@@ -51,7 +51,7 @@ export default [
         "id": "4",
         "name": "Fernanda",
         "location": "São Paulo, SP",
-        "image": "https://placehold.co/600x400", 
+        "image": "https://media.istockphoto.com/id/1369508766/pt/foto/beautiful-successful-latin-woman-smiling.jpg?s=612x612&w=0&k=20&c=FwKAb3g3-xgzsbyTcgjluJlGS1wBMXMg1hT2sB-gn2A=", 
         "categories": [
             "1"
         ]

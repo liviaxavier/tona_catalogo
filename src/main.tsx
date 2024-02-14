@@ -13,6 +13,7 @@ import App, { loader as rootLoader } from './App';
 import Auth from './pages/Auth';
 import { CssBaseline } from '@mui/material';
 import CategoryPage from './pages/Category';
+import ProfessionalPage from './pages/Professional';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   }
   , {
     path: "/professional/:professionalId",
-    // element: <Professional />
+    element: <ProfessionalPage />
   } 
   , {
     path: "/auth",

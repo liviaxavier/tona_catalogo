@@ -9,7 +9,7 @@ interface ProfesisonalCardInterface {
 export default function ProfessionalCard({item}: ProfesisonalCardInterface){
     const {name, image, id, face2face, online} = item
 
-    return   <Grid item xs={12} md={6} lg={4}>
+    return  <Grid item xs={12} md={6}>
     <Card key={id} >
         <CardActionArea href={`/professional/${id}`} sx={{display: 'flex', justifyContent: 'start'}}>
             <Box padding={1}>

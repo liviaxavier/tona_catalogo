@@ -3,7 +3,7 @@ import { CategoryInterface } from "../interfaces/Category";
 
 export default function CategoryCard({name, image, id}: CategoryInterface){
 
-    return   <Grid item xs={12} sm={8} md={4} lg={3}>
+    return   <Grid item xs={12} sm={8} md={4} lg={4}>
     <Card key={id}>
         <CardActionArea href={`/category/${id}`}>
             <CardMedia sx={{ height: 200 }} image={image} />

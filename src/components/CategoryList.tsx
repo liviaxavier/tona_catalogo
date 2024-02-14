@@ -9,7 +9,7 @@ export default function CategoryList(){
         setState({...state, categoryList: list})
     }, [])
     useEffect(() => {getCategoryList()}, [getCategoryList])
-    return  <Grid container spacing={2} padding={4}>
+    return  <Grid container margin={"auto"} md={8} spacing={2} padding={4}>
     {state.categoryList.map(
         item => <CategoryCard name={item.name} image={item.image} id={item.id} parent={item.parent} />
     )}

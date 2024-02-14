@@ -5,5 +5,6 @@ export interface ProfessionalInterface {
     categories: string[],
     description?: string,
     face2face: boolean, 
-    online: boolean
+    online: boolean,
+    location: string
 }

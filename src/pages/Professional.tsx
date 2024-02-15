@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import professionalList from '../data/professionalList'
 import { Breadcrumbs, Grid, Typography } from "@mui/material";
 import '../styles/professional.css'
+import Search from "../components/Search";
 
 export default function ProfessionalPage(){
     const {professionalId} = useParams()
@@ -15,7 +16,8 @@ export default function ProfessionalPage(){
     useEffect(() => {getProfessional()}, [getProfessional])
     if(!professional) return "loading..."
     return professional && <Grid sm={12} md={8} container margin={"auto"} spacing={2} padding={4}>
-        <Grid item sm={12} >
+            <Search />
+        <Grid item sm={12} marginTop={"80px"}  >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     home

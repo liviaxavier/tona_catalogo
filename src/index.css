@@ -66,3 +66,15 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.search__result{
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.searchComponent{
+  position: absolute;
+  width: 500px;
+  z-index: 999;
+}

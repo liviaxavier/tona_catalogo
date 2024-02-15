@@ -5,6 +5,7 @@ import ProfessionalCard from "./ProfessionalCard"
 import { ProfessionalInterface } from "../interfaces/Professional"
 import { Link } from "react-router-dom"
 import categoryList from "../data/categoryList"
+import Search from "./Search"
 
 interface ProfessionalListInterface {
     category: any
@@ -18,10 +19,11 @@ export default function ProfessionalList({category}: ProfessionalListInterface){
         const categoryFound: any = categoryList.find(item => item.id === category)
         setState({...state, professionalList: filteredProfessionalList, categoryDetails: categoryFound})
 
-    }, [])
+    }, [category])
     useEffect(() => {getProfessionalList()}, [getProfessionalList])
     return  <Grid container sm={12} md={8} margin={"auto"} spacing={2} padding={4}>
-        <Grid item sm={12} >
+            <Search />
+        <Grid item sm={12} marginTop={"80px"} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     home

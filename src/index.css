@@ -67,6 +67,11 @@ button:focus-visible {
   }
 } */
 
+a{
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
 .search__result{
   text-decoration: none;
   color: inherit;

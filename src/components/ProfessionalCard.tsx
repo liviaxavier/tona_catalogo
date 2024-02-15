@@ -1,6 +1,7 @@
-import { Box, Card, CardActionArea, CardContent, Chip, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Chip, Grid, Typography } from "@mui/material";
 import { ProfessionalInterface } from "../interfaces/Professional";
 import { MdCamera, MdFace } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 interface ProfesisonalCardInterface {
     item: ProfessionalInterface
@@ -11,7 +12,7 @@ export default function ProfessionalCard({item}: ProfesisonalCardInterface){
 
     return  <Grid item xs={12} md={6}>
     <Card key={id} >
-        <CardActionArea href={`/professional/${id}`} sx={{display: 'flex', justifyContent: 'start'}}>
+        <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'start'}}>
             <Box padding={1}>
                 <img height={"150px"} src={image} />
             </Box>
@@ -27,7 +28,7 @@ export default function ProfessionalCard({item}: ProfesisonalCardInterface){
                     {online && <Chip icon={<MdCamera />} label={"online"} />}
                 </Box>
             </CardContent>
-        </CardActionArea>
+        </Link>
     </Card>
     </Grid>
 }

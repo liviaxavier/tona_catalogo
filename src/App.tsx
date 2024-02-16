@@ -24,7 +24,7 @@ function App() {
     sheetId: import.meta.env.VITE_SPREADSHEET_ID
   });
   
-  const [db, setDB] = useState({categorias: [], profissionais: []})
+  const [db, setDB] = useState<any>({categorias: [], profissionais: []})
   
   const getDatabase = useCallback( async () => {
     const categorias = data.find(item => item.id === 'categorias')?.data.filter((item: any) => item.name)

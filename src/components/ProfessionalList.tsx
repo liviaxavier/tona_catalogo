@@ -26,13 +26,13 @@ export default function ProfessionalList({category}: ProfessionalListInterface){
         <Grid item sm={12} marginTop={"80px"} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
-                    home
+                    Home
                 </Link>
-                <Typography color="text.primary">{state.categoryDetails.name}</Typography>
+                <Typography color="text.primary">{state.categoryDetails?.name}</Typography>
             </Breadcrumbs>
         </Grid>
         <Grid item sm={12} spacing={2} >
-            <h1>{state.categoryDetails.name}</h1>
+            <h1>{state.categoryDetails?.name}</h1>
         </Grid>
         <Grid container spacing={2} >
             {state.professionalList.length > 0 ? state.professionalList.map(

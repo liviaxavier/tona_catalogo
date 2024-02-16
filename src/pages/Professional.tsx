@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import professionalList from '../data/professionalList'
+import categoryList from '../data/categoryList'
 import { Breadcrumbs, Grid, Typography } from "@mui/material";
 import '../styles/professional.css'
 import Search from "../components/Search";
@@ -11,22 +12,23 @@ export default function ProfessionalPage(){
     const {professional} = state
     const getProfessional = useCallback(() => {
         const professional = professionalList.find(item => item.id === professionalId)
-        setState({...state, professional})
+        const categoria = categoryList.find(item => professional?.categories[0] === item.id)
+        setState({...state, professional, categoria})
     }, [])
     useEffect(() => {getProfessional()}, [getProfessional])
     if(!professional) return "loading..."
-    return professional && <Grid sm={12} md={8} container margin={"auto"} spacing={2} padding={4}>
+    return professional && <Grid sm={12} container margin={"auto"} spacing={2} padding={4}>
             <Search />
         <Grid item sm={12} marginTop={"80px"}  >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
-                    home
+                    Home
                 </Link>
                 <Link
                     color="inherit"
-                    to="/"
+                    to={`/category/${state.categoria.id}`}
                 >
-                    Categoria
+                    {state.categoria?.name || ''}
                 </Link>
                 <Typography color="text.primary">{professional.name}</Typography>
             </Breadcrumbs>

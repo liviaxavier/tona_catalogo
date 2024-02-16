@@ -4,7 +4,7 @@ export default [
         "name": "Joana",
         "image": "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2018/03/formacao_1600x1200-como-a-presenca-da-mulher-pode-ser-harmonia-no-mundo.jpg", 
         "categories": [
-            "2"
+            "3"
         ],
         "face2face": true,
         "online": false,
@@ -16,7 +16,7 @@ export default [
         "name": "Maria",
         "image": "https://images.pexels.com/photos/2328141/pexels-photo-2328141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 
         "categories": [
-            "2"
+            "3"
         ],
         "location": "São Paulo, SP",
         "face2face": true,
@@ -29,7 +29,7 @@ export default [
         "name": "Priscila",
         "image": "https://midias.correiobraziliense.com.br/_midias/jpg/2021/03/05/675x450/1_cbpfot020320212188-6556336.jpg", 
         "categories": [
-            "0"
+            "1"
         ]
         , "face2face": true,
         "online": false
@@ -41,7 +41,7 @@ export default [
         "location": "São Paulo, SP",
         "image": "https://media.gazetadopovo.com.br/sites/2/2022/01/10205252/perfil-2-214x214.jpg", 
         "categories": [
-            "0"
+            "1"
         ]
         , "face2face": true,
         "online": true
@@ -53,7 +53,7 @@ export default [
         "location": "São Paulo, SP",
         "image": "https://media.istockphoto.com/id/1369508766/pt/foto/beautiful-successful-latin-woman-smiling.jpg?s=612x612&w=0&k=20&c=FwKAb3g3-xgzsbyTcgjluJlGS1wBMXMg1hT2sB-gn2A=", 
         "categories": [
-            "1"
+            "2"
         ]
         , "face2face": true,
         "online": true

@@ -21,7 +21,7 @@ export default function ProfessionalList({category}: ProfessionalListInterface){
 
     }, [category])
     useEffect(() => {getProfessionalList()}, [getProfessionalList])
-    return  <Grid container sm={12} md={8} margin={"auto"} spacing={2} padding={4}>
+    return  <Grid container sm={12} margin={"auto"} spacing={2} padding={4}>
             <Search />
         <Grid item sm={12} marginTop={"80px"} >
             <Breadcrumbs aria-label="breadcrumb">

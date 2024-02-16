@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 export default function CategoryCard({name, image, id}: CategoryInterface){
 
     return   <Grid item xs={12} sm={8} md={4} lg={4}>
-    <Card key={id}>
+    <Card key={id} elevation={4}>
         <Link to={`/category/${id}`}>
-            <CardMedia sx={{ height: 200 }} image={image} />
+            <CardMedia sx={{ height: 150 }} image={image} />
             <CardContent>
-                <Typography variant="h5" component="div">
+                <Typography fontWeight={500} variant="h5" component="div">
                     {name}
                 </Typography>
             </CardContent>

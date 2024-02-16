@@ -1,9 +1,9 @@
-import { Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
+import { Box, Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import professionalList from '../data/professionalList'
 import categoryList from '../data/categoryList'
 import { Link } from "react-router-dom";
-
+import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
 
 export default function Search(){
     const [query, setQuery] = useState<string>()
@@ -22,10 +22,13 @@ export default function Search(){
         filterProfessional()
     }, [filterCategory, filterProfessional])
     return <Grid className="searchComponent" item sm={12}>
-        <TextField id="search" label="O que você procura?" fullWidth variant="outlined" 
-        value={query}
-            onChange={e => { setQuery(e.target.value) }} 
-        />
+        <Box display={"flex"} alignItems={"center"} >
+            <img height={"50px"} src={logo} />
+            <TextField id="search" label="O que você procura?" fullWidth variant="outlined" 
+            value={query}
+                onChange={e => { setQuery(e.target.value) }} 
+            />
+        </Box>
         { query && categories && SearchResponse(categories, setQuery) }
         { query && professional && SearchResponse(professional, setQuery)}
     </Grid>

@@ -54,9 +54,7 @@ function App() {
       element: <Auth />
     } 
   ]);
-  return  <Grid container md={9} margin={"auto"}>
-    <RouterProvider router={router} /> 
-  </Grid>
+  return <RouterProvider router={router} /> 
 }
 
 export default App

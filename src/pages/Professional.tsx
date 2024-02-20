@@ -17,9 +17,10 @@ export default function ProfessionalPage(){
     }, [])
     useEffect(() => {getProfessional()}, [getProfessional])
     if(!professional) return "loading..."
-    return professional && <Grid sm={12} container margin={"auto"} spacing={2} padding={4}>
-            <Search />
-        <Grid item sm={12} marginTop={"80px"}  >
+    return professional && <>
+    <Search />
+    <Grid sm={12} container  padding={4}>
+        <Grid item sm={12} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     Home
@@ -43,4 +44,5 @@ export default function ProfessionalPage(){
             <p>{professional.description}</p>
         </Grid>
     </Grid>
+    </>
 }

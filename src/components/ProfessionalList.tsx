@@ -21,24 +21,22 @@ export default function ProfessionalList({category}: ProfessionalListInterface){
 
     }, [category])
     useEffect(() => {getProfessionalList()}, [getProfessionalList])
-    return  <Grid container sm={12} margin={"auto"} spacing={2} padding={4}>
-            <Search />
-        <Grid item sm={12} marginTop={"80px"} >
+    return  <>
+    <Search />
+    <Grid container sm={12} padding={2} display={"flex"} flexDirection={"column"}>
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     Home
                 </Link>
                 <Typography color="text.primary">{state.categoryDetails?.name}</Typography>
             </Breadcrumbs>
-        </Grid>
-        <Grid item sm={12} spacing={2} >
-            <h1>{state.categoryDetails?.name}</h1>
-        </Grid>
-        <Grid container spacing={2} >
+        <Grid container spacing={2} marginTop={1}>
+            <h1 style={{width: '100%', marginLeft: '.5em'}}>{state.categoryDetails?.name}</h1>
             {state.professionalList.length > 0 ? state.professionalList.map(
                 item => <ProfessionalCard  item={item} />
             ) : <p>Não há profisisonais nesta categoria</p>}
 
         </Grid>
     </Grid>
+    </>
 }

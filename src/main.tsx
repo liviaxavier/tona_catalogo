@@ -26,7 +26,7 @@ const theme = createTheme({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <CssBaseline />
+    {/* <CssBaseline /> */}
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>

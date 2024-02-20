@@ -11,7 +11,7 @@ export default function ProfessionalCard({item}: ProfesisonalCardInterface){
     const {name, image, id, face2face, online, location} = item
 
     return  <Grid item xs={12} md={6}>
-    <Card key={id} >
+    <Card key={id} elevation={2} >
         <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'start'}}>
             <Box padding={1}>
                 <img height={"150px"} src={image} />

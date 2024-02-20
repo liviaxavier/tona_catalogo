@@ -21,14 +21,12 @@ export default function Search(){
         filterCategory()
         filterProfessional()
     }, [filterCategory, filterProfessional])
-    return <Grid className="searchComponent" item sm={12}>
-        <Box display={"flex"} alignItems={"center"} >
-            <img height={"50px"} src={logo} />
-            <TextField id="search" label="O que você procura?" fullWidth variant="outlined" 
+    return <Grid className="searchComponent" container display={"flex"} alignItems={"center"} sm={12}>
+        <img height={"50px"} src={logo} />
+        <TextField style={{width: '100%', maxWidth: '500px', marginTop: '1em'}}  id="search" label="O que você procura?" variant="outlined" 
             value={query}
                 onChange={e => { setQuery(e.target.value) }} 
             />
-        </Box>
         { query && categories && SearchResponse(categories, setQuery) }
         { query && professional && SearchResponse(professional, setQuery)}
     </Grid>

@@ -8,7 +8,6 @@ interface CategoryListInterface {
     list: CategoryInterface[]
 }
 export default function CategoryList({list}: CategoryListInterface) {
-    console.log(list)
     // let initialCategoryList = list
     // const [state] = useState({ categoryList: list })
 
@@ -25,15 +24,15 @@ export default function CategoryList({list}: CategoryListInterface) {
 
     // useEffect(() => { getCategoryList() }, [getCategoryList])
 
-    return <Grid container margin={"auto"} spacing={2} padding={4}>
+    return <>
         <Search />
-       {list &&  <Grid container padding={4} spacing={2} marginTop={"50px"} >
+       {list &&  <Grid container padding={4} spacing={2}>
 
             {list.map(
                 (item:any) => <CategoryCard key={item.id} name={item.name} image={item.image} id={item.id} parent={item.parent} />
             )}
         </Grid>}
-    </Grid>
+    </>
 }
 
 // function GSheets(){

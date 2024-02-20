@@ -1,4 +1,4 @@
-import { Box, Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
+import { Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import professionalList from '../data/professionalList'
 import categoryList from '../data/categoryList'

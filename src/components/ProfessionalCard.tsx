@@ -10,11 +10,11 @@ interface ProfesisonalCardInterface {
 export default function ProfessionalCard({item}: ProfesisonalCardInterface){
     const {name, image, id, face2face, online, location} = item
 
-    return  <Grid item xs={12} md={6}>
+    return  <Grid item xs={12} sm={6} md={4} >
     <Card key={id} elevation={2} >
         <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'start'}}>
-            <Box padding={1}>
-                <img height={"150px"} src={image} />
+            <Box className="professional__image" padding={1}>
+                <img src={image} />
             </Box>
             <CardContent>
                 <Typography variant="h5" component="div">
@@ -23,7 +23,7 @@ export default function ProfessionalCard({item}: ProfesisonalCardInterface){
                 <Typography variant="body1" component="div">
                     {location}
                 </Typography>
-                <Box component={"div"} gap={2}>
+                <Box component={"div"} className="professional__chips">
                     {face2face && <Chip icon={<MdFace/>} label={"presencial"} />}
                     {online && <Chip icon={<MdCamera />} label={"online"} />}
                 </Box>

@@ -10,3 +10,20 @@
 .professional__photo img{
     width: 100%;
 }
+
+.professional__image{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+.professional__image img{
+    height: 180px;
+}
+.professional__chips .MuiChip-root{
+    margin-right: .5em;
+}

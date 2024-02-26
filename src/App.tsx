@@ -8,6 +8,7 @@ import ProfessionalPage from "./pages/Professional";
 import Auth from "./pages/Auth";
 import useGoogleSheets from "use-google-sheets";
 import { useCallback, useEffect, useState } from "react";
+import { Grid } from "@mui/material";
 export const loader = async () => {
   const isLogged = true;
 
@@ -53,7 +54,7 @@ function App() {
       element: <Auth />
     } 
   ]);
-  return <RouterProvider router={router} /> 
+  return <Grid container lg={8} margin={"auto"}><RouterProvider router={router} /> </Grid>
 }
 
 export default App

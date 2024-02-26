@@ -8,7 +8,7 @@ export default function CategoryCard({name, image, id}: CategoryInterface){
         <Link to={`/category/${id}`}>
             <CardMedia sx={{ height: 150 }} image={image} />
             <CardContent>
-                <Typography fontWeight={500} variant="h5" component="div">
+                <Typography fontWeight={500} component="div">
                     {name}
                 </Typography>
             </CardContent>

@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, Chip, Grid, Typography } from "@mui/material";
-import { ProfessionalInterface } from "../interfaces/Professional";
 import { MdCamera, MdFace } from "react-icons/md";
 import { Link } from "react-router-dom";
 

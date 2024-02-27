@@ -5,6 +5,7 @@
     justify-content: center;
     display: flex;
     align-items: center;
+    border-radius: 10px;
 }
 
 .professional__photo img{

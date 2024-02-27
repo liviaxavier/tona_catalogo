@@ -36,7 +36,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <CategoryList list={db.categorias} />,
+      element: <CategoryList list={db.categorias} data={data} />,
       errorElement: <ErrorPage />,
       loader,
     },

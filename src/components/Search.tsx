@@ -1,20 +1,20 @@
 import { Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-import professionalList from '../data/professionalList'
-import categoryList from '../data/categoryList'
 import { Link } from "react-router-dom";
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
 
-export default function Search(){
+export default function Search({data}: any){
     const [query, setQuery] = useState<string>()
     const [categories, setCategories] = useState<any>()
     const [professional, setProfessional] = useState<any>()
     const filterCategory = useCallback(() => {
-        const response = categoryList.filter(item => item.name.toLowerCase().includes(query?.toLowerCase() || ''))
+        const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
+        const response = listaCategorias.data.filter((item: any) => item.name && item.name.toLowerCase().includes(query?.toLowerCase() || ''))
         setCategories(response)
     }, [query])
     const filterProfessional = useCallback(() => {
-        const response = professionalList.filter(item => item.name.toLowerCase().includes(query?.toLowerCase() || ''))
+        const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
+        const response = listaProfissionais.data.filter((item: any) => item.Nome && item.Nome.toLowerCase().includes(query?.toLowerCase() || ''))
         setProfessional(response)
     }, [query])
     useEffect(() => {
@@ -35,9 +35,9 @@ export default function Search(){
 function SearchResponse(list: any, fn: any){
     return <List className="search__list" sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {list.map((item: any) => <ListItem>
-            <Link onClick={() => fn()} className="search__result" to={item.categories ? `/professional/${item.id}` : `/category/${item.id}`}>
+            <Link onClick={() => fn()} className="search__result" to={item.categoria ? `/professional/${item.id}` : `/category/${item.id}`}>
                 <ListItemButton>
-                    <ListItemText primary={item.name} secondary={item.location || ''} />
+                    <ListItemText primary={item.Nome || item.name} secondary={`${item['categoria']} - ${item['Localização']}` || ''} />
                 </ListItemButton>
             </Link>
     </ListItem>) }

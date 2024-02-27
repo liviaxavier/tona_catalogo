@@ -6,15 +6,17 @@ import { MdCamera, MdFace } from "react-icons/md";
 
 export default function ProfessionalPage({data}: DataBindInterface){
     const {professionalId} = useParams()
-    let categoryId = professionalId?.split("p")[0].replace("c","")
-    const category = data[Number(categoryId)]
-    const professionalCode = professionalId?.split("p")[1]
-    const professional = category?.data[Number(professionalCode) - 1] || {}
+    const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
+    const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
+
+    const professional = listaProfissionais.data.find((item: any) => item.id === professionalId)
+    const category = listaCategorias.data.find((item: any) => item.name === professional.categoria )
     const {Presencial, Online} = professional
     const tel = professional["Contato divulgação"].replace(/^(\+)|\D/g, "$1")
+
     if(!professional) return "loading..."
     return professional && <>
-    <Search />
+    <Search data={data} />
     <Grid sm={12} margin={"auto"} container spacing={2}>
         <Grid item sm={12} >
             <Breadcrumbs aria-label="breadcrumb">
@@ -23,9 +25,9 @@ export default function ProfessionalPage({data}: DataBindInterface){
                 </Link>
                 <Link
                     color="inherit"
-                    to={`/category/${categoryId}`}
+                    to={`/category/${category.id}`}
                 >
-                    {category?.id || ''}
+                    {category?.name || ''}
                 </Link>
                 <Typography color="text.primary">{professional.Nome}</Typography>
             </Breadcrumbs>

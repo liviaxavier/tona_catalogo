@@ -6,10 +6,11 @@ import Search from "./Search"
 import {CategoryInterface} from '../interfaces/Category'
 interface CategoryListInterface {
     list: CategoryInterface[]
+    data: any
 }
-export default function CategoryList({list}: CategoryListInterface) {
+export default function CategoryList({list, data}: CategoryListInterface) {
     return <>
-        <Search />
+        <Search data={data} />
        {list &&  <Grid style={{paddingTop: '2em'}} container spacing={2}>
 
             {list.map(

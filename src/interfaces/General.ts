@@ -1,0 +1,3 @@
+interface DataBindInterface {
+    data: any[]
+}

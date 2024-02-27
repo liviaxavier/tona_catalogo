@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ProfessionalList from "../components/ProfessionalList";
 
-export default function CategoryPage(){
+export default function CategoryPage({data}: DataBindInterface){
     const {categoryId} = useParams()
-    return <ProfessionalList category={categoryId} />
+    return <ProfessionalList data={data} categoryId={categoryId} />
 }

@@ -1,21 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import professionalList from '../data/professionalList'
-import categoryList from '../data/categoryList'
 import { Breadcrumbs, Grid, Typography } from "@mui/material";
 import '../styles/professional.css'
 import Search from "../components/Search";
 
-export default function ProfessionalPage(){
+export default function ProfessionalPage({data}: DataBindInterface){
     const {professionalId} = useParams()
-    const [state, setState] = useState<any>({})
-    const {professional} = state
-    const getProfessional = useCallback(() => {
-        const professional = professionalList.find(item => item.id === professionalId)
-        const categoria = categoryList.find(item => professional?.categories[0] === item.id)
-        setState({...state, professional, categoria})
-    }, [])
-    useEffect(() => {getProfessional()}, [getProfessional])
+    let categoryId = professionalId?.split("p")[0].replace("c","")
+    const category = data[Number(categoryId)]
+    const professionalCode = professionalId?.split("p")[1]
+    const professional = category?.data[Number(professionalCode) - 1] || {}
     if(!professional) return "loading..."
     return professional && <>
     <Search />
@@ -27,21 +20,23 @@ export default function ProfessionalPage(){
                 </Link>
                 <Link
                     color="inherit"
-                    to={`/category/${state.categoria.id}`}
+                    to={`/category/${categoryId}`}
                 >
-                    {state.categoria?.name || ''}
+                    {category?.id || ''}
                 </Link>
-                <Typography color="text.primary">{professional.name}</Typography>
+                <Typography color="text.primary">{professional.Nome}</Typography>
             </Breadcrumbs>
         </Grid>
         <Grid item sm={12} >
             <div className="professional__photo">
-                <img src={professional.image} />
+                <img src={professional.Foto} />
             </div>
         </Grid>
         <Grid item sm={12}>
-            <h1>{professional.name}</h1>
-            <p>{professional.description}</p>
+            <h1>{professional.Nome}</h1>
+            <p>{professional.Descricao}</p>
+            <br></br>
+            <a target="_blank" href={`https://wa.me/55${professional["Contato divulgação"]}`}>{professional["Contato divulgação"]}</a>
         </Grid>
     </Grid>
     </>

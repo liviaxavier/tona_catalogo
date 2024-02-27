@@ -27,8 +27,7 @@ function App() {
   
   const getDatabase = useCallback( async () => {
     const categorias = data.find(item => item.id === 'categorias')?.data.filter((item: any) => item.name)
-    const profisisonais = data.find(item => item.id === 'profisisonais')?.data.filter((item: any) => item.name)
-    setDB({ ...db, categorias, profisisonais })
+    setDB({ ...db, categorias })
   }, [data])
   
   useEffect(() => {getDatabase()}, [getDatabase])
@@ -42,11 +41,11 @@ function App() {
     },
     {
       path: "/category/:categoryId",
-      element: <CategoryPage />,
+      element: <CategoryPage data={data} />,
     }
     , {
       path: "/professional/:professionalId",
-      element: <ProfessionalPage />
+      element: <ProfessionalPage data={data}/>
     } 
     , {
       path: "/auth",

@@ -13,6 +13,7 @@ export default function ProfessionalPage({data}: DataBindInterface){
     const category = listaCategorias.data.find((item: any) => item.name === professional.categoria )
     const {Presencial, Online} = professional
     const tel = professional["Contato divulgação"].replace(/^(\+)|\D/g, "$1")
+    const registro = professional["Registro Conselho"]
 
     if(!professional) return "loading..."
     return professional && <>
@@ -39,13 +40,17 @@ export default function ProfessionalPage({data}: DataBindInterface){
         </Grid>
         <Grid item sm={12} md={8}>
             <h1>{professional.Nome}</h1>
-            <p>{professional["Localização"]}</p>
-            <Box component={"div"} className="professional__chips">
-                {Presencial === 's' && <Chip icon={<MdFace/>} label={"presencial"} />}
-                {Online === 's' && <Chip icon={<MdCamera />} label={"online"} />}
-            </Box>
+            {registro && <p>Registro Conselho: {registro}</p>}
+            <p>Localização: {professional["Localização"]}</p>
+            <p>Telefone: <a target="_blank" href={`https://wa.me/55${tel}`}>{professional["Contato divulgação"]}</a></p>
+            <p>
+                Modalidade: 
+                <Box component={"div"} className="professional__chips">
+                    {Presencial === 's' && <Chip icon={<MdFace/>} label={"presencial"} />}
+                    {Online === 's' && <Chip icon={<MdCamera />} label={"online"} />}
+                </Box>
+            </p>
             <br></br>
-            <a target="_blank" href={`https://wa.me/55${tel}`}>Telefone: {professional["Contato divulgação"]}</a>
         </Grid>
         <Grid item sm={12}>
             <h3>Descrição</h3>

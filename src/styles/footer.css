@@ -1,0 +1,27 @@
+.footer{
+    background-color: var(--purple);
+    height: 200px;
+    margin-top: 2em;
+}
+
+.footer {
+    color: white;
+}
+.footer__brand p{
+    margin: 0;
+    font-size: 13px;
+    margin-left: 1.2em;
+}
+
+.footer__socialMedia h4{
+    margin: .5em 0;
+}
+.footer__socialMedia a{
+    color: white;
+    text-decoration: underline;
+    margin: .5em 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5em;
+}

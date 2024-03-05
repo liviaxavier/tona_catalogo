@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import useGoogleSheets from "use-google-sheets";
 import { useCallback, useEffect, useState } from "react";
 import { Grid } from "@mui/material";
+import Footer from "./components/Footer";
 export const loader = async () => {
   const isLogged = true;
 
@@ -27,8 +28,11 @@ function App() {
   const [db, setDB] = useState<any>({categorias: [], profissionais: []})
   
   const getDatabase = useCallback( async () => {
-    const categorias = data.find(item => item.id === 'categorias')?.data.filter((item: any) => item.name)
-    setDB({ ...db, categorias })
+    const dbCategories = data.find(item => item.id === 'categorias')
+    if(dbCategories?.data){
+      const categorias = dbCategories.data.filter((item: any) => item.name)
+      setDB({ ...db, categorias })
+    }
   }, [data])
   
   useEffect(() => {getDatabase()}, [getDatabase])
@@ -53,9 +57,12 @@ function App() {
       element: <Auth />
     } 
   ]);
-  return <Grid container md={8} margin={"auto"}>
-    <RouterProvider router={router} />
-  </Grid> 
+  return <>
+    <Grid container md={8} margin={"auto"} spacing={2}>
+      <RouterProvider router={router} />
+    </Grid> 
+    <Footer />
+  </>
   
 }
 

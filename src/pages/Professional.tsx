@@ -8,17 +8,18 @@ export default function ProfessionalPage({data}: DataBindInterface){
     const {professionalId} = useParams()
     const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
     const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
-
-    const professional = listaProfissionais.data.find((item: any) => item.id === professionalId)
-    const category = listaCategorias.data.find((item: any) => item.name === professional.categoria )
+    let professional: any = {Presencial: false, Online:false, "contato divulgação": ""}, category
+    if(listaProfissionais?.data && listaCategorias?.data){
+        professional = listaProfissionais.data.find((item: any) => item.id === professionalId)
+        category = listaCategorias.data.find((item: any) => item.name === professional.categoria )
+    }
     const {Presencial, Online} = professional
-    const tel = professional["Contato divulgação"].replace(/^(\+)|\D/g, "$1")
+    const tel = professional["Contato divulgação"]?.replace(/^(\+)|\D/g, "$1")
     const registro = professional["Registro Conselho"]
-
     if(!professional) return "loading..."
     return professional && <>
     <Search data={data} />
-    <Grid sm={12} margin={"auto"} container spacing={2}>
+    <Grid sm={12} margin={"auto"} container spacing={2} minHeight={"calc(100vh - 275px)"}>
         <Grid item sm={12} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
@@ -26,7 +27,7 @@ export default function ProfessionalPage({data}: DataBindInterface){
                 </Link>
                 <Link
                     color="inherit"
-                    to={`/category/${category.id}`}
+                    to={`/category/${category?.id}`}
                 >
                     {category?.name || ''}
                 </Link>

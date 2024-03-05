@@ -1,7 +1,15 @@
+#root{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+}
 body{
   font-family: "Space Grotesk", sans-serif;
   overflow-x: hidden;
   background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
 }
 h1{
   font-family: "Space Grotesk", sans-serif;

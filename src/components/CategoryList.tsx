@@ -11,7 +11,7 @@ interface CategoryListInterface {
 export default function CategoryList({list, data}: CategoryListInterface) {
     return <>
         <Search data={data} />
-       {list &&  <Grid style={{paddingTop: '2em'}} container spacing={2}>
+       {list &&  <Grid style={{padding: '2em 1em'}} container spacing={2}>
 
             {list.map(
                 (item:any) => <CategoryCard key={item.id} name={item.name} image={item.image} id={item.id} parent={item.parent} />

@@ -9,13 +9,17 @@ export default function Search({data}: any){
     const [professional, setProfessional] = useState<any>()
     const filterCategory = useCallback(() => {
         const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
-        const response = listaCategorias.data.filter((item: any) => item.name && item.name.toLowerCase().includes(query?.toLowerCase() || ''))
-        setCategories(response)
+        if(listaCategorias?.data){
+            const response = listaCategorias.data.filter((item: any) => item.name && item.name.toLowerCase().includes(query?.toLowerCase() || ''))
+            setCategories(response)
+        }
     }, [query])
     const filterProfessional = useCallback(() => {
         const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
-        const response = listaProfissionais.data.filter((item: any) => item.Nome && item.Nome.toLowerCase().includes(query?.toLowerCase() || ''))
-        setProfessional(response)
+        if(listaProfissionais?.data){
+            const response = listaProfissionais.data.filter((item: any) => item.Nome && item.Nome.toLowerCase().includes(query?.toLowerCase() || ''))
+            setProfessional(response)
+        }
     }, [query])
     useEffect(() => {
         filterCategory()

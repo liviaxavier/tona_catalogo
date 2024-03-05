@@ -15,7 +15,7 @@ export default function ProfessionalList({data, categoryId}: InnerDataBindInterf
     if(!data) return "Loading..."
     return  <>
     <Search data={data} />
-    <Grid container sm={12} padding={2} display={"flex"} flexDirection={"column"}>
+    <Grid container sm={12} padding={2} display={"flex"} flexDirection={"column"} minHeight={"calc(100vh - 275px)"}>
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     Home

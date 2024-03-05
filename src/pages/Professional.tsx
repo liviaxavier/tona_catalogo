@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Box, Breadcrumbs, Chip, Grid, Typography } from "@mui/material";
 import '../styles/professional.css'
 import Search from "../components/Search";
-import { MdCamera, MdFace } from "react-icons/md";
+import { FaGraduationCap, FaLocationDot, FaWhatsapp, FaGlobe, FaPeopleArrows } from "react-icons/fa6";
 
 export default function ProfessionalPage({data}: DataBindInterface){
     const {professionalId} = useParams()
@@ -39,16 +39,15 @@ export default function ProfessionalPage({data}: DataBindInterface){
                 <img src={professional.Foto} />
             </div>
         </Grid>
-        <Grid item sm={12} md={8}>
+        <Grid className="professional__details" item sm={12} md={8}>
             <h1>{professional.Nome}</h1>
-            {registro && <p>Registro Conselho: {registro}</p>}
-            <p>Localização: {professional["Localização"]}</p>
-            <p>Telefone: <a target="_blank" href={`https://wa.me/55${tel}`}>{professional["Contato divulgação"]}</a></p>
-            <p>
-                Modalidade: 
+            {registro && <p><FaGraduationCap color="var(--purple)"/> {registro}</p>}
+            <p><FaLocationDot color="var(--purple)" />  {professional["Localização"]}</p>
+            <p><FaWhatsapp color="var(--purple)"/> <a style={{textDecoration: 'underline'}} target="_blank" href={`https://wa.me/55${tel}`}>{professional["Contato divulgação"]}</a></p>
+            <p> 
                 <Box component={"div"} className="professional__chips">
-                    {Presencial === 's' && <Chip icon={<MdFace/>} label={"presencial"} />}
-                    {Online === 's' && <Chip icon={<MdCamera />} label={"online"} />}
+                    {Presencial === 's' && <Chip color="primary" variant="outlined" icon={<FaPeopleArrows color="var(--purple)"/>} label={"presencial"}  style={{padding: '.5em'}}/>}
+                    {Online === 's' && <Chip color="primary" variant="outlined" icon={<FaGlobe />} label={"online"} style={{padding: '.5em'}}/>}
                 </Box>
             </p>
             <br></br>

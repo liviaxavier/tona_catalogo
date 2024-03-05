@@ -22,6 +22,11 @@ const theme = createTheme({
       "Space Grotesk", 'sans-serif',
     ].join(','),
   },
+  palette:{
+  primary:{
+    main: "#28287c"
+  }
+  }
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

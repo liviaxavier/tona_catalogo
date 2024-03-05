@@ -29,3 +29,9 @@
 .professional__chips .MuiChip-root{
     margin-right: .5em;
 }
+
+.professional__details p{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}

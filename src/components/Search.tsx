@@ -38,12 +38,18 @@ export default function Search({data}: any){
 
 function SearchResponse(list: any, fn: any){
     return <List className="search__list" sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {list.map((item: any) => <ListItem>
+        {list.map((item: any) => {
+            const categoria = item['categoria'] || ''
+            const localizacao = item['Localização'] || ''
+        return <ListItem>
             <Link onClick={() => fn()} className="search__result" to={item.categoria ? `/professional/${item.id}` : `/category/${item.id}`}>
                 <ListItemButton>
-                    <ListItemText primary={item.Nome || item.name} secondary={`${item['categoria']} - ${item['Localização']}` || ''} />
+                    <ListItemText primary={item.Nome || item.name} secondary={localizacao && categoria ? `${categoria} - ${localizacao}` : ''} />
                 </ListItemButton>
             </Link>
-    </ListItem>) }
+        </ListItem>
+
+        } 
+        ) }
   </List>
 }

@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, Chip, Grid, Typography } from "@mui/material";
-import { MdCamera, MdFace } from "react-icons/md";
+import { FaGlobe, FaPeopleArrows } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function ProfessionalCard({item}: any){
@@ -19,8 +19,8 @@ export default function ProfessionalCard({item}: any){
                     {item["Localização"]}
                 </Typography>
                 <Box component={"div"} className="professional__chips">
-                    {Presencial === 's' && <Chip icon={<MdFace/>} label={"presencial"} />}
-                    {Online === 's' && <Chip icon={<MdCamera />} label={"online"} />}
+                    {Presencial === 's' && <Chip color="primary" variant="outlined" icon={<FaPeopleArrows color="var(--purple)"/>} label={"presencial"}  style={{padding: '.5em'}}/>}
+                    {Online === 's' && <Chip color="primary" variant="outlined" icon={<FaGlobe />} label={"online"} style={{padding: '.5em'}}/>}
                 </Box>
             </CardContent>
         </Link>

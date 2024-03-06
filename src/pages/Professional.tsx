@@ -19,7 +19,7 @@ export default function ProfessionalPage({data}: DataBindInterface){
     if(!professional) return "loading..."
     return professional && <>
     <Search data={data} />
-    <Grid sm={12} margin={"auto"} container spacing={2} minHeight={"calc(100vh - 275px)"}>
+    <Grid sm={12} container gap={2} margin={2} >
         <Grid item sm={12} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
@@ -34,27 +34,29 @@ export default function ProfessionalPage({data}: DataBindInterface){
                 <Typography color="text.primary">{professional.Nome}</Typography>
             </Breadcrumbs>
         </Grid>
-        <Grid item sm={12} md={4} >
-            <div className="professional__photo">
-                <img src={professional.Foto} />
-            </div>
-        </Grid>
-        <Grid className="professional__details" item sm={12} md={8}>
-            <h1>{professional.Nome}</h1>
-            {registro && <p><FaGraduationCap color="var(--purple)"/> {registro}</p>}
-            <p><FaLocationDot color="var(--purple)" />  {professional["Localização"]}</p>
-            <p><FaWhatsapp color="var(--purple)"/> <a style={{textDecoration: 'underline'}} target="_blank" href={`https://wa.me/55${tel}`}>{professional["Contato divulgação"]}</a></p>
-            <p> 
-                <Box component={"div"} className="professional__chips">
-                    {Presencial === 's' && <Chip color="primary" variant="outlined" icon={<FaPeopleArrows color="var(--purple)"/>} label={"presencial"}  style={{padding: '.5em'}}/>}
-                    {Online === 's' && <Chip color="primary" variant="outlined" icon={<FaGlobe />} label={"online"} style={{padding: '.5em'}}/>}
-                </Box>
-            </p>
-            <br></br>
-        </Grid>
-        <Grid item sm={12}>
-            <h3>Descrição</h3>
-            <p>{professional.Descricao}</p>
+        <Grid container className="professional__information" marginTop={1} padding={2} spacing={2} minHeight={"calc(100vh - 370px)"}  alignContent={"start"}display={"flex"} justifyContent={"start"}>
+            <Grid item sm={12} md={4} >
+                <div className="professional__photo">
+                    <img src={professional.Foto} />
+                </div>
+            </Grid>
+            <Grid className="professional__details" item sm={12} md={8} >
+                <h1>{professional.Nome}</h1>
+                {registro && <p><FaGraduationCap color="var(--purple)"/> {registro}</p>}
+                <p><FaLocationDot color="var(--purple)" />  {professional["Localização"]}</p>
+                <p><FaWhatsapp color="var(--purple)"/> <a style={{textDecoration: 'underline'}} target="_blank" href={`https://wa.me/55${tel}`}>{professional["Contato divulgação"]}</a></p>
+                <p> 
+                    <Box component={"div"} className="professional__chips">
+                        {Presencial === 's' && <Chip color="primary" variant="outlined" icon={<FaPeopleArrows color="var(--purple)"/>} label={"presencial"}  style={{padding: '.5em'}}/>}
+                        {Online === 's' && <Chip color="primary" variant="outlined" icon={<FaGlobe />} label={"online"} style={{padding: '.5em'}}/>}
+                    </Box>
+                </p>
+                <br></br>
+            </Grid>
+            <Grid item sm={12} >
+                <h3>Descrição</h3>
+                <p>{professional.Descricao}</p>
+            </Grid>
         </Grid>
     </Grid>
     </>

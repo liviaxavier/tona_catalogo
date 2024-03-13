@@ -15,8 +15,8 @@
 }
 
 .professional__image{
-    width: 100px;
-    height: 100px;
+    width: calc(100% - 3em);
+    height: 200px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .professional__image img{
-    height: 180px;
+    /* height: 180px; */
 }
 .professional__chips .MuiChip-root{
     margin-right: .5em;

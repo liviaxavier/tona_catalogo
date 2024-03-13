@@ -13,7 +13,7 @@ export default function ProfessionalList({data, categoryId}: InnerDataBindInterf
     let categoryDetails: any, professionalList
     if(listaCategorias?.data && sheet?.data){
         categoryDetails = listaCategorias.data.find((item: any) => item.id === categoryId)
-        professionalList = sheet?.data.filter((item: any) => item["Nome"] && item["aceite"] === 's' && item.categoria === categoryDetails.name) || []
+        professionalList = sheet?.data.filter((item: any) => item["Nome"] && item.categoria === categoryDetails.name) || []
     }
     if(!data) return "Loading..."
     return  <>

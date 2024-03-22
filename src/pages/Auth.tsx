@@ -6,7 +6,7 @@ export default function Auth(){
     const { loginWithRedirect } = useAuth0();
 
     return <Grid container display={"flex"} alignContent={"center"} justifyContent={"center"} height={"calc(100vh - 265px)"} >
-    <Card sx={{ maxWidth: 500 }} elevation={5} style={{height:"20vh", display:"flex", justifyContent:"space-between", flexDirection:"column"}}>
+    <Card sx={{ maxWidth: 500 }} elevation={5} style={{minHeight:"20vh", display:"flex", justifyContent:"space-between", flexDirection:"column"}}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Catálogo Clube Tona

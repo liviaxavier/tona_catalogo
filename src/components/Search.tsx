@@ -1,9 +1,13 @@
-import { Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
+import { Button, Grid, List, ListItem, ListItemButton, ListItemText, TextField } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
+import {useAuth0  } from '@auth0/auth0-react';
+
 
 export default function Search({data}: any){
+    const { logout } = useAuth0();
+
     const [query, setQuery] = useState<string>()
     const [categories, setCategories] = useState<any>()
     const [professional, setProfessional] = useState<any>()
@@ -31,6 +35,9 @@ export default function Search({data}: any){
             value={query}
                 onChange={e => { setQuery(e.target.value) }} 
             />
+        <Button style={{marginLeft: 'auto'}} onClick={() => logout()} size="large" color="primary" variant='contained'>
+          Sair
+        </Button>
         { query && categories && SearchResponse(categories, setQuery) }
         { query && professional && SearchResponse(professional, setQuery)}
     </Grid>

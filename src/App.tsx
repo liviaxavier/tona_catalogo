@@ -10,6 +10,9 @@ import useGoogleSheets from "use-google-sheets";
 import { useCallback, useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import Footer from "./components/Footer";
+import {useAuth0  } from '@auth0/auth0-react';
+import Profile from "./pages/Profile";
+
 export const loader = async () => {
   const isLogged = true;
 
@@ -20,6 +23,7 @@ export const loader = async () => {
 };
 
 function App() {  
+  const {  isAuthenticated, isLoading } = useAuth0()
   const { data } = useGoogleSheets({
     apiKey: import.meta.env.VITE_API_KEY,
     sheetId: import.meta.env.VITE_SPREADSHEET_ID
@@ -56,12 +60,19 @@ function App() {
       path: "/auth",
       element: <Auth />
     } 
+    , {
+      path: "/meu-perfil/:professionalId",
+      element: <Profile data={data} />
+    } 
   ]);
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   return <>
-    <Grid container md={8} margin={"auto"} spacing={2}>
-      <RouterProvider router={router} />
-    </Grid> 
-    <Footer />
+      <Grid container md={8} margin={"auto"} spacing={2}>
+        {isAuthenticated ? <RouterProvider router={router} /> : <Auth/>}
+      </Grid> 
+      <Footer />
   </>
   
 }

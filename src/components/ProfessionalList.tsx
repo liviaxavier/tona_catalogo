@@ -8,8 +8,8 @@ interface InnerDataBindInterface {
     categoryId: any
 }
 export default function ProfessionalList({data, categoryId}: InnerDataBindInterface){
-    const sheet = data.find((item: any) => item.id === 'profissionais')
-    const listaCategorias = data.find((item: any) => item.id === 'categorias')
+    const sheet = data.profissionais // data.find((item: any) => item.id === 'profissionais')
+    const listaCategorias = data.categorias // data.find((item: any) => item.id === 'categorias')
     let categoryDetails: any, professionalList
     if(listaCategorias?.data && sheet?.data){
         categoryDetails = listaCategorias.data.find((item: any) => item.id === categoryId)
@@ -27,7 +27,7 @@ export default function ProfessionalList({data, categoryId}: InnerDataBindInterf
             </Breadcrumbs>
         <Grid container spacing={2} marginTop={1}>
             <h1 style={{width: '100%', marginLeft: '.5em'}}>{categoryDetails?.name}</h1>
-            {professionalList && professionalList.length > 0 ? professionalList.map(
+            {professionalList && professionalList.length > 0 ? professionalList.sort((a: any, b: any) => a.Nome.localeCompare(b.Nome)).map(
                 (item: any) => <ProfessionalCard  item={item} category={categoryDetails} />
             ) : <p>Não há profisisonais nesta categoria</p>}
 

@@ -4,9 +4,10 @@ import { Grid } from "@mui/material"
 import Search from "./Search"
 // import useGoogleSheets from 'use-google-sheets';
 import {CategoryInterface} from '../interfaces/Category'
+import {DataInterface} from '../interfaces/General'
 interface CategoryListInterface {
     list: CategoryInterface[]
-    data: any
+    data: DataInterface
 }
 export default function CategoryList({list, data}: CategoryListInterface) {
     return <>

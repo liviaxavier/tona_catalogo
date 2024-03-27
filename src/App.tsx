@@ -12,6 +12,7 @@ import { Grid } from "@mui/material";
 import Footer from "./components/Footer";
 import {useAuth0  } from '@auth0/auth0-react';
 import Profile from "./pages/Profile";
+import GetGSheetsData from "./services/GetGSheetsData";
 
 export const loader = async () => {
   const isLogged = true;
@@ -24,37 +25,36 @@ export const loader = async () => {
 
 function App() {  
   const {  isAuthenticated, isLoading } = useAuth0()
-  const { data } = useGoogleSheets({
-    apiKey: import.meta.env.VITE_API_KEY,
-    sheetId: import.meta.env.VITE_SPREADSHEET_ID
-  });
   
   const [db, setDB] = useState<any>({categorias: [], profissionais: []})
   
   const getDatabase = useCallback( async () => {
-    const dbCategories = data.find(item => item.id === 'categorias')
-    if(dbCategories?.data){
-      const categorias = dbCategories.data.filter((item: any) => item.name)
-      setDB({ ...db, categorias })
+    const categoryList = await GetGSheetsData.GetCategories()
+    const professionalList = await GetGSheetsData.GetProfessionals()
+
+    if(categoryList?.data &&professionalList?.data){
+      const categorias = categoryList.data.filter((item: any) => item.name)
+      const profissionais = professionalList.data.filter((item: any) => item.Nome)
+      setDB({ ...db, categorias, profissionais })
     }
-  }, [data])
+  }, [])
   
   useEffect(() => {getDatabase()}, [getDatabase])
   
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <CategoryList list={db.categorias} data={data} />,
+      element: <CategoryList list={db.categorias} data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />,
       errorElement: <ErrorPage />,
       loader,
     },
     {
       path: "/category/:categoryId",
-      element: <CategoryPage data={data} />,
+      element: <CategoryPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />,
     }
     , {
       path: "/professional/:professionalId",
-      element: <ProfessionalPage data={data}/>
+      element: <ProfessionalPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}}/>
     } 
     , {
       path: "/auth",
@@ -62,7 +62,7 @@ function App() {
     } 
     , {
       path: "/meu-perfil/:professionalId",
-      element: <Profile data={data} />
+      element: <Profile data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />
     } 
   ]);
   if (isLoading) {

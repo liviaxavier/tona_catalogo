@@ -4,11 +4,16 @@ import '../styles/professional.css'
 import Search from "../components/Search";
 import { FaGraduationCap, FaLocationDot, FaWhatsapp, FaGlobe, FaPeopleArrows, FaMoneyBill, FaBook, FaInstagram } from "react-icons/fa6";
 import { FaMailBulk } from "react-icons/fa";
-
-export default function ProfessionalPage({data}: DataBindInterface){
+import { DataInterface } from "../interfaces/General";
+interface ProfessionalPageInterface {
+    data: DataInterface
+}
+export default function ProfessionalPage({data}: ProfessionalPageInterface){
     const {professionalId} = useParams()
-    const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
-    const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
+    const listaProfissionais = data.profissionais // data.find((item: any) => item.id === 'profissionais')
+    const listaCategorias = data.categorias // data.find((item: any) => item.id === 'categorias')
+    // const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
+    // const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
     let professional: any = {Presencial: false, Online:false, "contato divulgação": ""}, category
     if(listaProfissionais?.data && listaCategorias?.data){
         professional = listaProfissionais.data.find((item: any) => item.id === professionalId)

@@ -6,7 +6,6 @@ import ErrorPage from "./pages/Error";
 import CategoryPage from "./pages/Category";
 import ProfessionalPage from "./pages/Professional";
 import Auth from "./pages/Auth";
-import useGoogleSheets from "use-google-sheets";
 import { useCallback, useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import Footer from "./components/Footer";

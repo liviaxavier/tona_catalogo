@@ -3,11 +3,14 @@ import { Box, Chip, Grid } from "@mui/material";
 import '../styles/professional.css'
 import { FaGraduationCap, FaLocationDot, FaWhatsapp, FaGlobe, FaPeopleArrows, FaMoneyBill, FaBook, FaInstagram } from "react-icons/fa6";
 import { FaMailBulk } from "react-icons/fa";
-
-export default function Profile({data}: DataBindInterface){
+import { DataInterface } from "../interfaces/General";
+interface ProfilePageInterface {
+    data: DataInterface
+}
+export default function Profile({data}: ProfilePageInterface){
     const {professionalId} = useParams()
-    const listaProfissionais = data.find((item: any) => item.id === 'profissionais') || []
-    const listaCategorias = data.find((item: any) => item.id === 'categorias') || []
+    const listaProfissionais = data.profissionais // data.find((item: any) => item.id === 'profissionais')
+    const listaCategorias = data.categorias // data.find((item: any) => item.id === 'categorias')
     let professional: any = {Presencial: false, Online:false, "contato divulgação": ""}, category
     if(listaProfissionais?.data && listaCategorias?.data){
         professional = listaProfissionais.data.find((item: any) => item.id === professionalId)

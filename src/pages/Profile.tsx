@@ -11,10 +11,9 @@ export default function Profile({data}: ProfilePageInterface){
     const {professionalId} = useParams()
     const listaProfissionais = data.profissionais // data.find((item: any) => item.id === 'profissionais')
     const listaCategorias = data.categorias // data.find((item: any) => item.id === 'categorias')
-    let professional: any = {Presencial: false, Online:false, "contato divulgação": ""}, category
+    let professional: any = {Presencial: false, Online:false, "contato divulgação": ""}
     if(listaProfissionais?.data && listaCategorias?.data){
         professional = listaProfissionais.data.find((item: any) => item.id === professionalId)
-        category = listaCategorias.data.find((item: any) => item.name === professional.categoria )
     }
     const {Presencial, Online, Foto} = professional
     const registro = professional["Registro Conselho"]

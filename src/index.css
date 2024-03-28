@@ -37,3 +37,9 @@ a{
   margin-top: 2em;
   gap: 2em;
 }
+
+.single_line_ellipsis {
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

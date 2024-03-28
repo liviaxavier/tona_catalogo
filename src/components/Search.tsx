@@ -35,7 +35,7 @@ export default function Search({data}: any){
             value={query}
                 onChange={e => { setQuery(e.target.value) }} 
             />
-        <Button style={{marginLeft: 'auto'}} onClick={() => logout()} size="large" color="primary" variant='contained'>
+        <Button style={{marginLeft: 'auto'}} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} size="large" color="primary" variant='contained'>
           Sair
         </Button>
         { query && categories && SearchResponse(categories, setQuery) }

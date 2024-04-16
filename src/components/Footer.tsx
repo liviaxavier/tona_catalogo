@@ -10,6 +10,7 @@ export default function Footer(){
     return <Grid container className="footer" padding={4}>
         <Grid className="footer__brand" item sm={12} md={4}>
             <img height={"80px"} src={logo} />
+            <a href="https://www.clubetona.com.br/_files/ugd/150e9b_b7071276b1cf47c6b8b9ac441bca46e6.pdf" target="_blank" rel="noopener noreferrer">termos de serviço</a>
         </Grid>
         <Grid className="footer__socialMedia" item sm={12} md={4}>
             <h4>REDES SOCIAIS</h4>

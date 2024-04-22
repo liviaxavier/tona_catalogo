@@ -4,6 +4,7 @@ import './index.css'
 import App from './App';
 import { createTheme,  ThemeProvider } from '@mui/material';
 import { Auth0Provider  } from '@auth0/auth0-react';
+import TagManager from 'react-gtm-module'
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -30,7 +31,11 @@ const theme = createTheme({
   }
   }
 });
+const tagManagerArgs = {
+  gtmId: 'GTM-PSRSHBJQ'
+}
 
+TagManager.initialize(tagManagerArgs)
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {/* <CssBaseline /> */}

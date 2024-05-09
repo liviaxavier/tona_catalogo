@@ -6,7 +6,7 @@ export default function ProfessionalCard({item}: any){
     const {Nome, Foto, id, Presencial, Online, Especialidade } = item
     const Foto_id = Foto.split('d/')[1]?.split('/view')[0]
     const image = Foto_id ? `https://drive.google.com/thumbnail?export=view&id=${Foto_id}` : Foto
-    return  <Grid item xs={12} sm={4} lg={3}>
+    return  <Grid item xs={12} sm={4} lg={3} padding={1}>
     <Card key={id} elevation={2}>
         <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'start', flexDirection: 'column'}}>
             <Box className="professional__image">

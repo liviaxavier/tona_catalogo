@@ -10,6 +10,7 @@ body{
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 h1{
   font-family: "Space Grotesk", sans-serif;
@@ -34,7 +35,7 @@ a{
 }
 
 .searchComponent{
-  margin-top: 2em;
+  margin: 2em auto;
   gap: 2em;
 }
 
@@ -42,4 +43,10 @@ a{
   white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media (max-width: 700px) {
+  #image-tona{
+    display: none;
+  }
 }

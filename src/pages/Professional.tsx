@@ -33,9 +33,9 @@ export default function ProfessionalPage({data}: ProfessionalPageInterface){
     }
     const tel = details.whatsapp?.replace(/^(\+)|\D/g, "$1")
     if(!professional) return "loading..."
-    return professional && <>
+    return professional && <Grid item xs={12} padding={"1em"}>
     <Search data={data} />
-    <Grid sm={12} container gap={2} margin={2} >
+    <Grid xs={12} container >
         <Grid item sm={12} >
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
@@ -50,18 +50,18 @@ export default function ProfessionalPage({data}: ProfessionalPageInterface){
                 <Typography color="text.primary">{professional.Nome}</Typography>
             </Breadcrumbs>
         </Grid>
-        <Grid container className="professional__information" marginTop={1} padding={2} spacing={2} minHeight={"calc(100vh - 370px)"}  alignContent={"start"}display={"flex"} justifyContent={"start"}>
+        <Grid sm={12} display={"flex"} flexWrap={"wrap"} className="professional__information" marginTop={1} padding={2}  minHeight={"calc(100vh - 370px)"}  alignContent={"start"} justifyContent={"start"}>
             <Grid item sm={12} md={4} >
                 <div className="professional__photo">
                     <img src={image} />
                 </div>
             </Grid>
             <Grid className="professional__details" container sm={12} md={8} >
-                <Grid sm={12}>
+                <Grid item sm={12}>
                     <h1>{professional.Nome}</h1>
                     <p>{professional["Especialidade"]}</p>
                 </Grid>
-                <Grid sm={12} md={6}>
+                <Grid item sm={12} md={6}>
                 <p><FaLocationDot color="var(--purple)" />  {professional["Localização"]}</p>
                 {details.investimento && <p><FaMoneyBill color="var(--purple)" />  {details.investimento}</p>}
                 <p> 
@@ -89,5 +89,5 @@ export default function ProfessionalPage({data}: ProfessionalPageInterface){
             </Grid>
         </Grid>
     </Grid>
-    </>
+    </Grid>
 }

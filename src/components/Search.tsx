@@ -29,7 +29,7 @@ export default function Search({data}: any){
         filterCategory()
         filterProfessional()
     }, [filterCategory, filterProfessional])
-    return <Grid className="searchComponent" container display={"flex"} alignItems={"center"} sm={12}>
+    return <Grid className="searchComponent" container alignItems={"center"} xs={12} padding={2}>
         <Link to="/"><img height={"50px"} src={logo} /></Link>
         <TextField style={{width: '100%', maxWidth: '500px'}}  id="search" label="O que você procura?" variant="outlined" 
             value={query}

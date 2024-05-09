@@ -10,13 +10,13 @@ interface CategoryListInterface {
     data: DataInterface
 }
 export default function CategoryList({list, data}: CategoryListInterface) {
-    return <>
+    return <Grid item xs={12}>
         <Search data={data} />
-       {list &&  <Grid style={{padding: '2em 1em'}} container spacing={2}>
+       {list &&  <Grid display={"flex"} flexWrap={"wrap"} padding={"1em"}>
 
             {list.map(
                 (item:any) => <CategoryCard key={item.id} name={item.name} image={item.image} id={item.id} parent={item.parent} />
             )}
         </Grid>}
-    </>
+    </Grid>
 }

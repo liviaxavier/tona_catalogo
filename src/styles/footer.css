@@ -1,11 +1,15 @@
 .footer{
     background-color: var(--purple);
-    height: 200px;
+    /* height: 200px; */
     margin-top: 2em;
 }
 
 .footer {
     color: white;
+}
+
+.footer a{
+    width: 100%;
 }
 .footer__brand p{
     margin: 0;
@@ -34,3 +38,12 @@
     align-items: center;
     gap: .5em;
 }
+
+@media (max-width: 700px) {
+    .footer__brand, .footer__socialMedia, .footer__partners, .footer__partners div{
+        width: 100%;
+    }
+    .footer__partners {
+        margin-top: 2em;
+    }
+  }

@@ -16,16 +16,16 @@ export default function ProfessionalList({data, categoryId}: InnerDataBindInterf
         professionalList = sheet?.data.filter((item: any) => item["Nome"] && item.categoria === categoryDetails.name) || []
     }
     if(!data) return "Loading..."
-    return  <>
+    return  <Grid item xs={12}>
     <Search data={data} />
-    <Grid container sm={12} padding={2} display={"flex"} flexDirection={"column"} minHeight={"calc(100vh - 275px)"}>
+    <Grid sm={12} minHeight={"calc(100vh - 275px)"} padding={"1em"}>
             <Breadcrumbs aria-label="breadcrumb">
                 <Link  color="inherit" to="/">
                     Home
                 </Link>
                 <Typography color="text.primary">{categoryDetails?.name}</Typography>
             </Breadcrumbs>
-        <Grid container spacing={2} marginTop={1}>
+        <Grid display={"flex"} flexWrap={"wrap"} marginTop={1}>
             <h1 style={{width: '100%', marginLeft: '.5em'}}>{categoryDetails?.name}</h1>
             {professionalList && professionalList.length > 0 ? professionalList.sort((a: any, b: any) => a.Nome.localeCompare(b.Nome)).map(
                 (item: any) => <ProfessionalCard  item={item} category={categoryDetails} />
@@ -33,5 +33,5 @@ export default function ProfessionalList({data, categoryId}: InnerDataBindInterf
 
         </Grid>
     </Grid>
-    </>
+    </Grid>
 }

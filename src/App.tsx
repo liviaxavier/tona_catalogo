@@ -68,7 +68,7 @@ function App() {
     return <div>Loading ...</div>;
   }
   return <>
-      <Grid container md={8} margin={"auto"} spacing={2}>
+      <Grid container md={8} margin={"auto"}>
         {isAuthenticated ? <RouterProvider router={router} /> : <Auth/>}
       </Grid> 
       <Footer />

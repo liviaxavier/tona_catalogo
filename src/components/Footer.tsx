@@ -18,7 +18,7 @@ export default function Footer(){
             <a href="https://www.linkedin.com/company/clube-tona?originalSubdomain=br" target="_blank" rel="noopener noreferrer"><FaLinkedin fontSize={"1.2em"}/> LinkedIn</a>
             <a href="https://wa.me/message/W63NMCUWPSLGA1" target="_blank" rel="noopener noreferrer"><FaWhatsapp fontSize={"1.2em"}/> WhatsApp</a>
         </Grid>
-        <Grid container sm={12} md={4} alignContent={"start"}>
+        <Grid container sm={12} md={4} alignContent={"start"} className="footer__partners">
             <Grid item sm={12}>
                 <p style={{margin:'0', fontSize:'12px'}}>Em parceria com</p>
                 <hr></hr>

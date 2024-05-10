@@ -25,7 +25,7 @@ export default function Auth() {
       url: 'https://www.asaas.com/c/r3dqpewbwr3y10xh'
     }
   ]
-  const [plan, setPlan] = useState(plans[0].value)
+  const [plan, setPlan] = useState(plans[0])
   const [value, setValue] = useState(plans[0].value)
 
 

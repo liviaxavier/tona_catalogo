@@ -2,6 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Button, Card, CardActions, CardContent, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material';
 import { useState } from 'react';
 import imageTona from '../assets/image-tona.webp'
+import '../styles/auth.css'
 
 
 export default function Auth() {
@@ -33,7 +34,7 @@ export default function Auth() {
     setValue((event.target as HTMLInputElement).value);
   };
 
-  return <Grid container alignContent={"center"} justifyContent={"center"} height={"calc(100vh - 265px)"} >
+  return <Grid container alignContent={"center"} justifyContent={"center"} className='container'>
     {register ? <Register handleChange={handleChange} value={value} planHandler={setPlan} plan={plan} list={plans} registerHandler={setIsRegister} /> : <AuthCard registerHandler={setIsRegister} loginHandler={loginWithRedirect} />}
 
 
@@ -111,7 +112,7 @@ function AuthCard({ children, registerHandler = () => { }, loginHandler = () => 
               <Button style={{ width: '50%' }}
                 onClick={() => registerHandler(true)}
                 size="large" color="primary" variant='outlined'>
-                Quero me cadastrar
+                Cadastrar
               </Button>
               <Button style={{ width: '50%' }} onClick={() => loginHandler()} size="large" color="primary" variant='contained'>
                 Entrar
@@ -121,7 +122,7 @@ function AuthCard({ children, registerHandler = () => { }, loginHandler = () => 
       </Card>
     </Grid>
     <Grid item xs={12} md={6} id={"image-tona"}>
-      <img src={imageTona} style={{ position: 'relative', left: '-25%' }} />
+      <img src={imageTona} style={{ position: 'relative' }} />
     </Grid>
   </Grid>
 

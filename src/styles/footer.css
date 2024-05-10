@@ -40,6 +40,10 @@
 }
 
 @media (max-width: 700px) {
+    .footer{
+        /* position: sticky;
+        bottom: 0; */
+    }
     .footer__brand, .footer__socialMedia, .footer__partners, .footer__partners div{
         width: 100%;
     }

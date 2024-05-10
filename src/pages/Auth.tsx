@@ -12,17 +12,17 @@ export default function Auth() {
     {
       label: 'Mensal',
       value: 'mensal',
-      url: 'http://google.com'
+      url: 'https://www.asaas.com/c/q62krvf838h8fofy'
     },
     {
       label: 'Trimestral',
       value: 'trimestral',
-      url: 'http://instagram.com'
+      url: 'https://www.asaas.com/c/2nu9ndqw923b1ehr'
     },
     {
       label: 'Semestral',
       value: 'semestral',
-      url: 'http://globo.com'
+      url: 'https://www.asaas.com/c/r3dqpewbwr3y10xh'
     }
   ]
   const [plan, setPlan] = useState(plans[0].value)

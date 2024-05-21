@@ -1,11 +1,43 @@
 .container{
-    height: calc(100vh - 265px);
+    position: relative;
+    height: calc(100vh - 255px);
 }
 
+
+.card-actions{
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-button{
+    width: 100%;
+    margin:.5em !important;
+}
+#logo-auth-page{
+    display: none;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+}
 @media (max-width: 700px) {
+    #logo-auth-page{
+        display: block;
+        position: fixed;
+        top: 2em;
+        left: 5%;
+        /* margin: 1em 0; */
+    }
     .container{
-        height: auto;
-        margin: 6em 1em;
-        margin-bottom: 2em;
+        height: 100vh;
+        margin: 0 1em;
+    }
+    /* .card-actions{
+        display: block !important;
+    } */
+    .card-button{
+        width: 100%;
+        margin: .5em 0 !important;
     }
   }

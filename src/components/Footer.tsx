@@ -2,7 +2,6 @@ import { Grid } from "@mui/material";
 import logo from '../assets/tona_logo_completa_3 1.png'
 import '../styles/footer.css'
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import evoe_logo_fff from '../assets/evoe_logo_2020_fff.svg'
 import tangerina_logo_fff from '../assets/logo_tangerina_white.png'
 
 export default function Footer(){
@@ -26,11 +25,6 @@ export default function Footer(){
             <Grid item sm={12} md={6}>
                 <a href="https://tangerinatech.com/" target="_blank" rel="noopener noreferrer">
                     <img src={tangerina_logo_fff} width={image_width}/>
-                </a>
-            </Grid>
-            <Grid item sm={12} md={6}>
-                <a href="https://evoe.cc/" target="_blank" rel="noopener noreferrer">
-                    <img src={evoe_logo_fff} width={image_width}/>
                 </a>
             </Grid>
         </Grid>

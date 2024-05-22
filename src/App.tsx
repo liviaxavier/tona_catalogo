@@ -71,9 +71,14 @@ function App() {
       <Grid container md={8} margin={"auto"}>
         {isAuthenticated ? <RouterProvider router={router} /> : <Auth/>}
       </Grid> 
-      <Footer />
+      {showFooter(isAuthenticated) && <Footer />}
   </>
   
 }
 
 export default App
+
+function showFooter(isAuthenticated: boolean){
+  const screenSize = window.innerWidth
+  return screenSize > 700 || isAuthenticated && screenSize < 700
+}

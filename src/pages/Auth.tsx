@@ -26,7 +26,7 @@ export default function Auth() {
   const [plan, setPlan] = useState(plans[0])
   const [value, setValue] = useState(plans[0].value)
 
-console.info('register: ', register)
+  console.info('register: ', register)
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
   };
@@ -39,13 +39,12 @@ console.info('register: ', register)
     , {
       path: "/register",
       element: <Register handleChange={handleChange} value={value} planHandler={setPlan} plan={plan} list={plans} registerHandler={setIsRegister} />
-    } 
+    }
   ])
 
   return <Grid container alignContent={"center"} justifyContent={"center"} className='container'>
     <img height={"50px"} src={logo} id="logo-auth-page" />
     <RouterProvider router={router} />
-
   </Grid>
 }
 
@@ -84,16 +83,17 @@ function Register({ planHandler, plan, list, registerHandler, handleChange, valu
       <CardActions className='card-actions'>
         <Button fullWidth className='card-button'
           size="large" color="primary" variant='contained'>
-          <a style={{color:'white'}} target='_blank' href={plan.url}>Ver detalhes do plano</a>
+          <a style={{ color: 'white' }} target='_blank' href={plan.url}>Ver detalhes do plano</a>
         </Button>
         <Link to="/" className='card-button'>
-          <Button 
-            style={{width:'100%', fontSize:'10px'}}
+          <Button
+            style={{ width: '100%'}}
             onClick={() => registerHandler(false)}
-            size="small" color="primary" variant='text'>
+            size="large" color="primary" variant='outlined'>
             ir para página inicial
           </Button>
         </Link>
+        <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{fontSize:'12px', textDecoration: 'underline', textAlign:'center', width:'100%', margin: '10px 0'}}>Veja onde temos profissionais cadastradas!</a>
       </CardActions>
     </>
   } />
@@ -106,8 +106,9 @@ interface AuthCardInterface {
 function AuthCard({ children, registerHandler = () => { }, loginHandler = () => { } }: AuthCardInterface) {
   return <Grid container>
     <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
-      <Card sx={{ maxWidth: 500, width: '100%' }} elevation={5} style={{ 
-      minHeight: "20vh", display: "flex", justifyContent: "space-between", flexDirection: "column" }}>
+      <Card sx={{ maxWidth: 500, width: '100%' }} elevation={5} style={{
+        minHeight: "20vh", display: "flex", justifyContent: "space-between", flexDirection: "column"
+      }}>
         {
           children || (<><CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -117,20 +118,21 @@ function AuthCard({ children, registerHandler = () => { }, loginHandler = () => 
               Realize seu login para ter acesso completo ao catálogo de profissionais!
             </Typography>
           </CardContent>
-            <CardActions className='card-actions' 
+            <CardActions className='card-actions'
             >
-              <Button className='card-button'  onClick={() => loginHandler()} size="large" color="primary" variant='contained'>
+              <Button className='card-button' onClick={() => loginHandler()} size="large" color="primary" variant='contained'>
                 Entrar
               </Button>
               <Link to="/register" className='card-button'>
                 <Button
-                  style={{width: '100%', fontSize:'10px'}}
+                  style={{ width: '100%'}}
                   onClick={() => registerHandler(true)}
-                  size="small" color="primary" variant='text'>
+                  size="large" color="primary" variant='outlined'>
                   Quero me cadastrar
                 </Button>
 
               </Link>
+              <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{fontSize:'12px', textDecoration: 'underline', textAlign: 'center', width: '100%', margin: '10px 0' }}>Veja onde temos profissionais cadastradas!</a>
             </CardActions></>)
         }
       </Card>

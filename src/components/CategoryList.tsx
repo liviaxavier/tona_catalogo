@@ -1,6 +1,6 @@
 // import { useCallback, useEffect, useState } from "react"
 import CategoryCard from "./CategoryCard"
-import { Grid } from "@mui/material"
+import { CircularProgress, Grid } from "@mui/material"
 import Search from "./Search"
 // import useGoogleSheets from 'use-google-sheets';
 import {CategoryInterface} from '../interfaces/Category'
@@ -12,6 +12,17 @@ interface CategoryListInterface {
 export default function CategoryList({list, data}: CategoryListInterface) {
     return <Grid item xs={12}>
         <Search data={data} />
+        {
+            list.length == 0 && <div style={{
+                height: '50vh',
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center'
+            }}>
+                <CircularProgress />
+            </div>
+            
+        }
        {list &&  <Grid display={"flex"} flexWrap={"wrap"} padding={"1em"}>
 
             {list.map(

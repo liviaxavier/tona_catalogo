@@ -90,7 +90,7 @@ function Register({ planHandler, plan, list, registerHandler, handleChange, valu
             style={{ width: '100%'}}
             onClick={() => registerHandler(false)}
             size="large" color="primary" variant='outlined'>
-            ir para página inicial
+            Fazer login
           </Button>
         </Link>
         <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{fontSize:'12px', textDecoration: 'underline', textAlign:'center', width:'100%', margin: '10px 0'}}>Veja onde temos profissionais cadastradas!</a>

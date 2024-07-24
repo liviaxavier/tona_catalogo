@@ -23,7 +23,7 @@ export const loader = async () => {
 };
 
 function App() {  
-  const {  isAuthenticated, isLoading } = useAuth0()
+  const {  isAuthenticated, isLoading, user } = useAuth0()
   
   const [db, setDB] = useState<any>({categorias: [], profissionais: []})
   
@@ -43,17 +43,17 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <CategoryList list={db.categorias} data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />,
+      element: <CategoryList list={db.categorias} data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}, user}} />,
       errorElement: <ErrorPage />,
       loader,
     },
     {
       path: "/category/:categoryId",
-      element: <CategoryPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />,
+      element: <CategoryPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}, user}} />,
     }
     , {
       path: "/professional/:professionalId",
-      element: <ProfessionalPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}}/>
+      element: <ProfessionalPage data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}, user}}/>
     } 
     , {
       path: "/auth",
@@ -61,7 +61,7 @@ function App() {
     } 
     , {
       path: "/meu-perfil/:professionalId",
-      element: <Profile data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}}} />
+      element: <Profile data={{profissionais: {data: db.profissionais}, categorias: {data:db.categorias}, user}} />
     } 
   ]);
   if (isLoading) {

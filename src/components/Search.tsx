@@ -2,10 +2,12 @@ import { Button, Grid, List, ListItem, ListItemButton, ListItemText, TextField }
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
-import {useAuth0  } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
+import DownloadMemberCard from "./DownloadMemberCard";
 
 
-export default function Search({data}: any){
+export default function Search({ data }: any) {
+    const user: any = data.user;
     const { logout } = useAuth0();
 
     const [query, setQuery] = useState<string>()
@@ -13,14 +15,14 @@ export default function Search({data}: any){
     const [professional, setProfessional] = useState<any>()
     const filterCategory = useCallback(() => {
         const listaCategorias = data.categorias//data.find((item: any) => item.id === 'categorias') || []
-        if(listaCategorias?.data){
+        if (listaCategorias?.data) {
             const response = listaCategorias.data.filter((item: any) => item.name && item.name.toLowerCase().includes(query?.toLowerCase() || ''))
             setCategories(response)
         }
     }, [query])
     const filterProfessional = useCallback(() => {
         const listaProfissionais = data.profissionais // data.find((item: any) => item.id === 'profissionais') || []
-        if(listaProfissionais?.data){
+        if (listaProfissionais?.data) {
             const response = listaProfissionais.data.filter((item: any) => item.Nome && item.Nome.toLowerCase().includes(query?.toLowerCase() || ''))
             setProfessional(response)
         }
@@ -29,34 +31,47 @@ export default function Search({data}: any){
         filterCategory()
         filterProfessional()
     }, [filterCategory, filterProfessional])
-    return <Grid className="searchComponent" container alignItems={"center"} xs={12} padding={2}>
-        <Link to="/"><img height={"50px"} src={logo} /></Link>
-        <TextField style={{width: '100%', maxWidth: '500px'}}  id="search" label="O que você procura?" variant="outlined" 
-            value={query}
-                onChange={e => { setQuery(e.target.value) }} 
+    return <Grid className="searchComponent" container alignItems={"center"} xs={12}>
+        <Grid item xs={2} marginTop={2}>
+            <Link to="/"><img height={"50px"} src={logo} /></Link>
+        </Grid>
+        <Grid item xs={10} style={{display:'flex', justifyContent: 'end', gap:'1em'}} marginTop={2}>
+            <DownloadMemberCard member={user} />
+            <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} size="large" color="primary" variant='outlined'>
+                Sair
+            </Button>
+        </Grid>
+        <Grid item xs={12} md={12} marginTop={2} style={{
+            display:'flex',
+            justifyContent:'center',
+            alignItems: 'center'
+        }}>
+            <TextField style={{ width: '100%', margin:'auto' }} id="search" label="O que você procura?" variant="outlined"
+                value={query}
+                onChange={e => { setQuery(e.target.value) }}
             />
-        <Button style={{marginLeft: 'auto'}} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} size="large" color="primary" variant='contained'>
-          Sair
-        </Button>
-        { query && categories && SearchResponse(categories, setQuery) }
-        { query && professional && SearchResponse(professional, setQuery)}
+        </Grid>
+        <Grid item xs={12} md={12} marginTop={2}>
+            {query && categories && SearchResponse(categories, setQuery)}
+            {query && professional && SearchResponse(professional, setQuery)}
+        </Grid>
     </Grid>
 }
 
-function SearchResponse(list: any, fn: any){
+function SearchResponse(list: any, fn: any) {
     return <List className="search__list" sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {list.map((item: any) => {
             const categoria = item['categoria'] || ''
             const localizacao = item['Localização'] || ''
-        return <ListItem>
-            <Link onClick={() => fn()} className="search__result" to={item.categoria ? `/professional/${item.id}` : `/category/${item.id}`}>
-                <ListItemButton>
-                    <ListItemText primary={item.Nome || item.name} secondary={localizacao && categoria ? `${categoria} - ${localizacao}` : ''} />
-                </ListItemButton>
-            </Link>
-        </ListItem>
+            return <ListItem>
+                <Link onClick={() => fn()} className="search__result" to={item.categoria ? `/professional/${item.id}` : `/category/${item.id}`}>
+                    <ListItemButton>
+                        <ListItemText primary={item.Nome || item.name} secondary={localizacao && categoria ? `${categoria} - ${localizacao}` : ''} />
+                    </ListItemButton>
+                </Link>
+            </ListItem>
 
-        } 
-        ) }
-  </List>
+        }
+        )}
+    </List>
 }

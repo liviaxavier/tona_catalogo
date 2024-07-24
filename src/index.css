@@ -35,8 +35,9 @@ a{
 }
 
 .searchComponent{
-  margin: 2em auto;
-  gap: 2em;
+  /* margin-top: 2em; */
+  /* margin: 2em auto; */
+  /* gap: 2em; */
 }
 
 .single_line_ellipsis {

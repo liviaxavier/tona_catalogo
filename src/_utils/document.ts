@@ -7,7 +7,7 @@ export function printDocument(inputId: string, docName: string) {
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0, 0, 0);
+        pdf.addImage(imgData, 'JPEG', 0, 0, 0, 340);
         // pdf.output('dataurlnewwindow');
         pdf.save(`${docName}.pdf`);
       })

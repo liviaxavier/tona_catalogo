@@ -20,7 +20,7 @@ export default function MemberCard({ member }: any) {
         <p style={{
             ...common, position, top: `${(0.4 * height) + (fontSize * 2)}px`, fontSize: smallFontSize,
         }}>plano</p>
-        <p style={{ ...common, position, bottom: `${0.1 * height}px`, fontSize: smallFontSize, }}>
+        <p style={{ ...common, position, bottom: `${0.15 * height}px`, fontSize: smallFontSize, }}>
             Válido até: <span style={{ fontSize: mediumFontSize }}>data_validade</span></p>
     </div>
 }

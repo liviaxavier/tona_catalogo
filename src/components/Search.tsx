@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
 import { useAuth0 } from '@auth0/auth0-react';
 import DownloadMemberCard from "./DownloadMemberCard";
+// import Asaas from "../services/Asaas";
 
 
 export default function Search({ data }: any) {
@@ -13,6 +14,8 @@ export default function Search({ data }: any) {
     const [query, setQuery] = useState<string>()
     const [categories, setCategories] = useState<any>()
     const [professional, setProfessional] = useState<any>()
+    // const [error, setError] = useState<any>();
+
     const filterCategory = useCallback(() => {
         const listaCategorias = data.categorias//data.find((item: any) => item.id === 'categorias') || []
         if (listaCategorias?.data) {
@@ -31,22 +34,37 @@ export default function Search({ data }: any) {
         filterCategory()
         filterProfessional()
     }, [filterCategory, filterProfessional])
+
+    // const getUser = useCallback(async () => {
+    //     try {
+    //         await Asaas.getUser(user)
+    //     } catch (error) {
+    //         setError('Erro ao buscar usuário')
+    //     }
+    // }, [user])
+
+    // useEffect(() => {
+    //     getUser()
+    // }, [getUser])
+    // if(error){
+    //     return <p>{error}</p>
+    // }
     return <Grid className="searchComponent" container alignItems={"center"} xs={12}>
         <Grid item xs={2} marginTop={2}>
-            <Link to="/"><img height={"50px"} src={logo} /></Link>
+            <Link to="/"><img id={"logo"} height={"50px"} src={logo} /></Link>
         </Grid>
-        <Grid item xs={10} style={{display:'flex', justifyContent: 'end', gap:'1em'}} marginTop={2}>
+        <Grid item xs={10} style={{ display: 'flex', justifyContent: 'end', gap: '1em' }} marginTop={2}>
             <DownloadMemberCard member={user} />
             <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} size="large" color="primary" variant='outlined'>
                 Sair
             </Button>
         </Grid>
         <Grid item xs={12} md={12} marginTop={2} style={{
-            display:'flex',
-            justifyContent:'center',
+            display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center'
         }}>
-            <TextField style={{ width: '100%', margin:'auto' }} id="search" label="O que você procura?" variant="outlined"
+            <TextField style={{ width: '100%', margin: 'auto' }} id="search" label="O que você procura?" variant="outlined"
                 value={query}
                 onChange={e => { setQuery(e.target.value) }}
             />

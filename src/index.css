@@ -34,11 +34,6 @@ a{
   width: 100%;
 }
 
-.searchComponent{
-  /* margin-top: 2em; */
-  /* margin: 2em auto; */
-  /* gap: 2em; */
-}
 
 .single_line_ellipsis {
   white-space: nowrap;
@@ -49,5 +44,11 @@ a{
 @media (max-width: 700px) {
   #image-tona{
     display: none;
+  }
+  .searchComponent{
+    padding: 0 1.5em;
+  }
+  #logo{
+    height: 30px;
   }
 }

@@ -7,7 +7,7 @@ import CategoryPage from "./pages/Category";
 import ProfessionalPage from "./pages/Professional";
 import Auth from "./pages/Auth";
 import { useCallback, useEffect, useState } from "react";
-import { Grid } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 import Footer from "./components/Footer";
 import {useAuth0  } from '@auth0/auth0-react';
 import Profile from "./pages/Profile";
@@ -65,7 +65,14 @@ function App() {
     } 
   ]);
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return <div style={{
+      height: '50vh',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center'
+  }}>
+      <CircularProgress />
+  </div>;
   }
   return <>
       <Grid container md={8} margin={"auto"}>

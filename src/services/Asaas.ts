@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_ASAAS_API_TOKEN;
+// const API_KEY = import.meta.env.VITE_ASAAS_API_TOKEN;
 export default {
-    getUser: async (user: any) => {
+    getUser: async () => { // user: any
         // ?email=${user.name}
         try {
             const response = await axios.get(`https://api.asaas.com/v3/customers`, {

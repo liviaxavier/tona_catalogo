@@ -5,6 +5,9 @@ import imageTona from '../assets/image-tona.webp'
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
 import '../styles/auth.css'
 import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import bg_desktop_image from '../assets/3840x2160_shoes.png'
+import bg_mobile_image from '../assets/640x1136_shoes.png'
+
 
 
 export default function Auth() {
@@ -87,13 +90,13 @@ function Register({ planHandler, plan, list, registerHandler, handleChange, valu
         </Button>
         <Link to="/" className='card-button'>
           <Button
-            style={{ width: '100%'}}
+            style={{ width: '100%' }}
             onClick={() => registerHandler(false)}
             size="large" color="primary" variant='outlined'>
             Fazer login
           </Button>
         </Link>
-        <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{fontSize:'12px', textDecoration: 'underline', textAlign:'center', width:'100%', margin: '10px 0'}}>Veja onde temos profissionais cadastradas!</a>
+        <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{ fontSize: '12px', textDecoration: 'underline', textAlign: 'center', width: '100%', margin: '10px 0' }}>Veja onde temos profissionais cadastradas!</a>
       </CardActions>
     </>
   } />
@@ -104,8 +107,21 @@ interface AuthCardInterface {
   loginHandler?: Function
 }
 function AuthCard({ children, registerHandler = () => { }, loginHandler = () => { } }: AuthCardInterface) {
+  const screenSize = window.innerWidth
+  const isDesktop = screenSize > 700
   return <Grid container>
-    <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
+    <img src={isDesktop ? bg_desktop_image : bg_mobile_image} alt="" style={{
+      position: 'fixed',
+      zIndex: '-9999',
+      top: 0,
+      left: 0,
+      width: '100%'
+    }} />
+    {!isDesktop && <Grid item xs={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection:'column', marginBottom:'2em' }}>
+      <p style={{ color: 'var(--purple)', backgroundColor: '#ffc800a6', padding: '0 1em', margin:'0', borderRadius: '20px', fontWeight:'bold', marginBottom:'.5em' }}>Dezenas de profissionais lésbicas</p>
+      <p style={{ color: 'var(--purple)', backgroundColor: '#ffc800a6', padding: '0 1em', margin:'0', borderRadius: '20px', fontWeight:'bold' }}>nas pontas dos seus dedos!</p>
+    </Grid>}
+    <Grid item xs={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Card sx={{ maxWidth: 500, width: '100%' }} elevation={5} style={{
         minHeight: "20vh", display: "flex", justifyContent: "space-between", flexDirection: "column"
       }}>
@@ -125,21 +141,23 @@ function AuthCard({ children, registerHandler = () => { }, loginHandler = () => 
               </Button>
               <Link to="/register" className='card-button'>
                 <Button
-                  style={{ width: '100%'}}
+                  style={{ width: '100%' }}
                   onClick={() => registerHandler(true)}
                   size="large" color="primary" variant='outlined'>
                   Quero me cadastrar
                 </Button>
 
               </Link>
-              <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{fontSize:'12px', textDecoration: 'underline', textAlign: 'center', width: '100%', margin: '10px 0' }}>Veja onde temos profissionais cadastradas!</a>
+              <a href='https://docs.google.com/document/d/1cG-VZ_4Lw9NsNT9jd8RNxMCoTMvX_NVMyDN-bJaF_I0/edit' target='_blank' style={{ fontSize: '12px', textDecoration: 'underline', textAlign: 'center', width: '100%', margin: '10px 0' }}>Veja onde temos profissionais cadastradas!</a>
             </CardActions></>)
         }
       </Card>
     </Grid>
-    <Grid item xs={12} md={6} id={"image-tona"}>
-      <img src={imageTona} style={{ position: 'relative' }} />
-    </Grid>
+    {isDesktop && <Grid item xs={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <h2 style={{ color: 'var(--purple)', backgroundColor: '#ffc800a6', padding: '0 1em', borderRadius: '20px' }}>
+        Dezenas de profissionais lésbicas nas pontas dos seus dedos!
+      </h2>
+    </Grid>}
   </Grid>
 
 

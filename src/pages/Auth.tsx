@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button, Card, CardActions, CardContent, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material';
 import { useState } from 'react';
-import imageTona from '../assets/image-tona.webp'
+// import imageTona from '../assets/image-tona.webp'
 import logo from '../assets/150e9b_c64f84cf34ad43049086d4a4ebc049f5~mv2.webp'
 import '../styles/auth.css'
 import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';

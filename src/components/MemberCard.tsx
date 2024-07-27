@@ -19,8 +19,8 @@ export default function MemberCard({ member }: any) {
         <p style={{ ...common, position, top, fontSize: baseFontSize, fontWeight: 'bold' }}>{member.name}</p>
         <p style={{
             ...common, position, top: `${(0.4 * height) + (fontSize * 2)}px`, fontSize: smallFontSize,
-        }}>plano</p>
+        }}>{member.plano}</p>
         <p style={{ ...common, position, bottom: `${0.15 * height}px`, fontSize: smallFontSize, }}>
-            Válido até: <span style={{ fontSize: mediumFontSize }}>data_validade</span></p>
+            Válido até: <span style={{ fontSize: mediumFontSize }}>{new Date(member.validade).toLocaleDateString()}</span></p>
     </div>
 }

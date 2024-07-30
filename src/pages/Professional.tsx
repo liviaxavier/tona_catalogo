@@ -64,7 +64,7 @@ export default function ProfessionalPage({ data }: ProfessionalPageInterface) {
                     <Typography color="text.primary">{professional.Nome}</Typography>
                 </Breadcrumbs>
             </Grid>
-            <Grid sm={12} display={"flex"} flexWrap={"wrap"} className="professional__information" marginTop={1} padding={2} minHeight={"calc(100vh - 370px)"} alignContent={"start"} justifyContent={"start"}>
+            <Grid container sm={12} display={"flex"} flexWrap={"wrap"} className="professional__information" marginTop={1} padding={2} minHeight={"calc(100vh - 370px)"} alignContent={"start"} justifyContent={"start"}>
                 <Grid item sm={12} md={4} >
                     <div className="professional__photo">
                         <img src={image} />
@@ -86,7 +86,7 @@ export default function ProfessionalPage({ data }: ProfessionalPageInterface) {
                         </p>
 
                     </Grid>
-                    <Grid sm={12} md={6}>
+                    <Grid sm={12} md={6} style={{width:'100%'}}>
                         {registro && <p><FaGraduationCap color="var(--purple)" /> {registro}</p>}
                         {details.portfolio && <p style={{ overflow: "hidden", lineBreak: 'unset' }}><FaBook color="var(--purple)" /> <a style={{ textDecoration: 'underline' }} target="_blank" href={`${details.portfolio}`}>Portfólio</a></p>}
                     </Grid>

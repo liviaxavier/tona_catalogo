@@ -116,7 +116,8 @@ function AuthCard({ children, registerHandler = () => { }, loginHandler = () => 
       top: 0,
       left: 0,
       minHeight: '100%',
-      minWidth:'100%'
+      minWidth:'100%',
+      width: isDesktop ? '100%' : 'auto'
     }} />
     {!isDesktop && <Grid item xs={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection:'column', marginBottom:'2em' }}>
       <p style={{ color: 'var(--purple)', backgroundColor: '#ffc800a6', padding: '0 1em', margin:'0', borderRadius: '20px', fontWeight:'bold', marginBottom:'.5em' }}>Dezenas de profissionais lésbicas</p>

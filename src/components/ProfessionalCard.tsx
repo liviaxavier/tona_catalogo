@@ -8,7 +8,7 @@ export default function ProfessionalCard({item}: any){
     const image = Foto_id ? `https://drive.google.com/thumbnail?export=view&id=${Foto_id}` : Foto
     return  <Grid item xs={12} sm={4} lg={3} padding={1}>
     <Card key={id} elevation={2}>
-        <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'start', flexDirection: 'column'}}>
+        <Link to={`/professional/${id}`} style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
             <Box className="professional__image">
                 <img src={image} />
             </Box>
